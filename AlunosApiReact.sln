@@ -1,0 +1,25 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33423.256
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AlunosApiReact", "AlunosApiReact\AlunosApiReact.csproj", "{B13A6E35-FA92-407F-8B21-08500EFF23C5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B13A6E35-FA92-407F-8B21-08500EFF23C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B13A6E35-FA92-407F-8B21-08500EFF23C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B13A6E35-FA92-407F-8B21-08500EFF23C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B13A6E35-FA92-407F-8B21-08500EFF23C5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {5273F6D4-697E-4F2F-95F5-1AE7928C23C5}
+	EndGlobalSection
+EndGlobal
