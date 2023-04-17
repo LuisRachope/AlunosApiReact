@@ -14,5 +14,25 @@ namespace AlunosApiReact.Context
         }
 
         public DbSet<Aluno> Alunos { get; set; }
+
+        protected override void OnModelCreating(ModelBuilder modelBuilder)
+        {
+            modelBuilder.Entity<Aluno>().HasData(
+                new Aluno
+                {
+                    Id = 1,
+                    Nome = "Maria da Penha",
+                    Email = "mariapenha@gmail.com",
+                    Idade = 43,
+                },
+                new Aluno
+                {
+                    Id = 2,
+                    Nome = "Manuel Bueno",
+                    Email = "manualbueno@gmail.com",
+                    Idade = 32,
+                }
+            );
+        }
     }
 }
