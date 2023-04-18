@@ -1,4 +1,7 @@
 using AlunosApiReact.Context;
+using AlunosApiReact.Models;
+using AlunosApiReact.Models.View;
+using AlunosApiReact.Service;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -36,6 +39,8 @@ namespace AlunosApiReact
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "AlunosApiReact", Version = "v1" });
             });
+
+            services.AddTransient<IAlunoService, AlunosService>();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
