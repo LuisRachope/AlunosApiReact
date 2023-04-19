@@ -22,7 +22,7 @@ namespace AlunosApiReact.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> GetAll()
+        public async Task<IActionResult> GetAlunoAll()
         {
             IEnumerable<Aluno> alunos = await _alunoService.GetAll();
 
@@ -35,7 +35,7 @@ namespace AlunosApiReact.Controllers
         }
 
         [HttpGet("id")]
-        public async Task<IActionResult> GetById(int id)
+        public async Task<IActionResult> GetAlunoById(int id)
         {
             Aluno aluno = await _alunoService.GetById(id);
 
@@ -45,6 +45,26 @@ namespace AlunosApiReact.Controllers
             }
 
             return Ok(aluno);
+        }
+
+        [HttpGet("AlunoPorNome")]
+        public async Task<ActionResult<IAsyncEnumerable<Aluno>>> GetAlunoByNome([FromQuery] string nome)
+        {
+            try
+            {
+                var alunos = await _alunoService.GetAlunosByNome(nome);
+
+                if (alunos.Count() == 0)
+                {
+                    return NotFound($"Não existem alunos com o critério {nome}");
+                }
+
+                return Ok(alunos);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Request inválido.");
+            }
         }
 
         [HttpPost]
