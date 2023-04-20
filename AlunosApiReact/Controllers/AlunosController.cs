@@ -24,27 +24,41 @@ namespace AlunosApiReact.Controllers
         [HttpGet]
         public async Task<IActionResult> GetAlunoAll()
         {
-            IEnumerable<Aluno> alunos = await _alunoService.GetAll();
-
-            if (alunos is null)
+            try
             {
-                return BadRequest("Falha ao tentar trazer a listagem de alunos.");
-            }
+                IEnumerable<Aluno> alunos = await _alunoService.GetAll();
 
-            return Ok(alunos);
+                if (alunos is null)
+                {
+                    return BadRequest("Falha ao tentar trazer a listagem de alunos.");
+                }
+
+                return Ok(alunos);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Request inválido.");
+            }
         }
 
         [HttpGet("id")]
         public async Task<IActionResult> GetAlunoById(int id)
         {
-            Aluno aluno = await _alunoService.GetById(id);
-
-            if (aluno is null)
+            try
             {
-                return BadRequest($"Falha ao tentar pesquiasar o aluno Id = {aluno.Id}.");
-            }
+                Aluno aluno = await _alunoService.GetById(id);
 
-            return Ok(aluno);
+                if (aluno is null)
+                {
+                    return BadRequest($"Falha ao tentar pesquiasar o aluno Id = {aluno.Id}.");
+                }
+
+                return Ok(aluno);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Request inválido.");
+            }
         }
 
         [HttpGet("AlunoPorNome")]
@@ -70,45 +84,66 @@ namespace AlunosApiReact.Controllers
         [HttpPost]
         public IActionResult Create([FromBody] AlunoViewModel viewModel)
         {
-            Aluno aluno = new Aluno { Nome = viewModel.Nome, Email = viewModel.Email, Idade = viewModel.Idade };
+            try
+            {
+                Aluno aluno = new Aluno { Nome = viewModel.Nome, Email = viewModel.Email, Idade = viewModel.Idade };
 
-            _alunoService.Insert(aluno);
+                _alunoService.Insert(aluno);
 
-            return Ok(viewModel);
+                return Ok(viewModel);
+            }
+            catch (Exception)
+            {
+                return BadRequest("Request inválido.");
+            }
         }
 
         [HttpPut("id")]
         public async Task<IActionResult> Update([FromBody] AlunoViewModel viewModel, int id)
         {
-            Aluno aluno = await _alunoService.GetById(id);
-
-            if (aluno is not null)
+            try
             {
-                aluno.Nome = viewModel.Nome;
-                aluno.Email = viewModel.Email;
-                aluno.Idade = viewModel.Idade;
+                Aluno aluno = await _alunoService.GetById(id);
 
-                await _alunoService.Update(aluno);
+                if (aluno is not null)
+                {
+                    aluno.Nome = viewModel.Nome;
+                    aluno.Email = viewModel.Email;
+                    aluno.Idade = viewModel.Idade;
 
-                return Ok(viewModel);
+                    await _alunoService.Update(aluno);
+
+                    return Ok(viewModel);
+                }
+
+                return BadRequest("Falha ao tentar alterar o aluno.");
             }
-
-            return BadRequest("Falha ao tentar alterar o aluno.");
+            catch (Exception)
+            {
+                return BadRequest("Request inválido.");
+            }
         }
 
         [HttpDelete("id")]
         public async Task<IActionResult> Delete(int id)
         {
-            Aluno aluno = await _alunoService.GetById(id);
-
-            if (aluno is not null)
+            try
             {
-                await _alunoService.Delete(aluno);
+                Aluno aluno = await _alunoService.GetById(id);
 
-                return Ok($"O Aluno: {aluno.Id} - {aluno.Nome} foi deletado com sucesso.");
+                if (aluno is not null)
+                {
+                    await _alunoService.Delete(aluno);
+
+                    return Ok($"O Aluno: {aluno.Id} - {aluno.Nome} foi deletado com sucesso.");
+                }
+
+                return BadRequest("Falha ao tentar excluir o aluno.");
             }
-
-            return BadRequest("Falha ao tentar excluir o aluno.");
+            catch (Exception)
+            {
+                return BadRequest("Request inválido.");
+            }
         }
     }
 }
