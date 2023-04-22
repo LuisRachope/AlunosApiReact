@@ -5,27 +5,6 @@ VisualStudioVersion = 16.0.33423.256
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AlunosApiReact", "AlunosApiReact\AlunosApiReact.csproj", "{B13A6E35-FA92-407F-8B21-08500EFF23C5}"
 EndProject
-Project("{E24C65DC-7377-472B-9ABA-BC803B73C61A}") = "alunosreact", "alunosreact\", "{7EC4BFDE-0D6B-4145-BE69-ADF1CEF12260}"
-	ProjectSection(WebsiteProperties) = preProject
-		TargetFrameworkMoniker = ".NETFramework,Version%3Dv4.0"
-		Debug.AspNetCompiler.VirtualPath = "/localhost_50226"
-		Debug.AspNetCompiler.PhysicalPath = "alunosreact\"
-		Debug.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50226\"
-		Debug.AspNetCompiler.Updateable = "true"
-		Debug.AspNetCompiler.ForceOverwrite = "true"
-		Debug.AspNetCompiler.FixedNames = "false"
-		Debug.AspNetCompiler.Debug = "True"
-		Release.AspNetCompiler.VirtualPath = "/localhost_50226"
-		Release.AspNetCompiler.PhysicalPath = "alunosreact\"
-		Release.AspNetCompiler.TargetPath = "PrecompiledWeb\localhost_50226\"
-		Release.AspNetCompiler.Updateable = "true"
-		Release.AspNetCompiler.ForceOverwrite = "true"
-		Release.AspNetCompiler.FixedNames = "false"
-		Release.AspNetCompiler.Debug = "False"
-		VWDPort = "50226"
-		SlnRelativePath = "alunosreact\"
-	EndProjectSection
-EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -36,10 +15,6 @@ Global
 		{B13A6E35-FA92-407F-8B21-08500EFF23C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B13A6E35-FA92-407F-8B21-08500EFF23C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B13A6E35-FA92-407F-8B21-08500EFF23C5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{7EC4BFDE-0D6B-4145-BE69-ADF1CEF12260}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EC4BFDE-0D6B-4145-BE69-ADF1CEF12260}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{7EC4BFDE-0D6B-4145-BE69-ADF1CEF12260}.Release|Any CPU.ActiveCfg = Debug|Any CPU
-		{7EC4BFDE-0D6B-4145-BE69-ADF1CEF12260}.Release|Any CPU.Build.0 = Debug|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
