@@ -16,6 +16,7 @@ function App() {
   const [modalIncluir, setModalIncluir]=useState(false);
   const [modalEditar, setModalEditar]=useState(false);
   const [modalExcluir, setModalExcluir]=useState(false);
+  const [updateData, setUpdateData]=useState(true);
 
   const [alunoSelecionado, setAlunoSelecinado]=useState(
     {
@@ -68,6 +69,7 @@ function App() {
       .then(response=>{
         setData(data.concat(response.data));
         abrirFecharModalIncluir();
+        setUpdateData(true);
       }).catch(error=>{
         console.log(error);
       })
@@ -88,6 +90,7 @@ function App() {
           }
         });
         abrirFecharModalEditar();
+        setUpdateData(true);
       }).catch(error=>{
         console.log(error);
       })
@@ -98,14 +101,18 @@ function App() {
       .then(response=>{
         setData(data.filter(aluno=> aluno.id !== response.data));
           abrirFecharModalExcluir();
+          setUpdateData(true);
       }).catch(error=>{
         console.log(error);
       })
   }
- 
+  
   useEffect(()=>{
-    requestGet();
-  })
+    if(updateData){
+      requestGet();
+      setUpdateData(false);
+    }
+  },[updateData])
 
   return (
     <div className="aluno-container">
