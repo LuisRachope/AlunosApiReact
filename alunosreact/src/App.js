@@ -68,8 +68,8 @@ function App() {
       await axios.post(baseUrl, alunoSelecionado)
       .then(response=>{
         setData(data.concat(response.data));
-        abrirFecharModalIncluir();
         setUpdateData(true);
+        abrirFecharModalIncluir();
       }).catch(error=>{
         console.log(error);
       })
@@ -89,8 +89,8 @@ function App() {
             aluno.idade=resposta.idade;
           }
         });
-        abrirFecharModalEditar();
         setUpdateData(true);
+        abrirFecharModalEditar();
       }).catch(error=>{
         console.log(error);
       })
@@ -100,8 +100,8 @@ function App() {
       await axios.delete(baseUrl+"/id?id="+alunoSelecionado.id, alunoSelecionado)
       .then(response=>{
         setData(data.filter(aluno=> aluno.id !== response.data));
-          abrirFecharModalExcluir();
-          setUpdateData(true);
+        setUpdateData(true);
+        abrirFecharModalExcluir();
       }).catch(error=>{
         console.log(error);
       })
@@ -166,7 +166,7 @@ function App() {
 
         <ModalFooter>
           <button className="btn btn-primary" onClick={()=>requestPost()}>Incluir</button>
-          <button className="btn btn-danger" onClick={()=>abrirFecharModalIncluir()}>Cancelar</button>
+          <button className="btn btn-secondary" onClick={()=>abrirFecharModalIncluir()}>Cancelar</button>
         </ModalFooter>
 
       </Modal>
@@ -192,7 +192,7 @@ function App() {
 
         <ModalFooter>
           <button className="btn btn-primary" onClick={()=>requestPut()}>Editar</button>
-          <button className="btn btn-danger" onClick={()=>abrirFecharModalEditar()}>Cancelar</button>
+          <button className="btn btn-secondary" onClick={()=>abrirFecharModalEditar()}>Cancelar</button>
         </ModalFooter>
 
       </Modal>
