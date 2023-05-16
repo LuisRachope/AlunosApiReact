@@ -13,9 +13,11 @@ export default function Alunos() {
             <header>
                <img src={logoCadastro} alt="Cadastro" />
                <span>Bem-Vindo, <strong></strong>!</span>
-               <Link className='button' to='aluno/novo'>Novo Aluno</Link>
-               <button type="button">
-                 <FiXCircle size={35} color='#17202a'></FiXCircle>
+               <Link className="button" to="/aluno/novo/0">Novo Aluno</Link>
+               <button type="button" class="center-button">
+                    <div class="icon-wrapper">
+                        <FiXCircle size={45} color='#17202a'></FiXCircle>
+                    </div>
                </button>
             </header>
 
@@ -27,31 +29,32 @@ export default function Alunos() {
             </form>
 
             <h1>Relação de Alunos</h1>
-               <ul> 
-                    <li>
-                        <b>Nome:</b>Paulo<br/><br/>
-                        <b>Email:</b>paulo@email.com<br/><br/>
-                        <b>Idade:</b>22<br/><br/>
-                        <button type="button">
-                            <FiEdit size='25' color='#17202a'></FiEdit>
-                        </button>
+            <ul> 
+                <li>
+                    <b>Nome:</b>Paulo<br/><br/>
+                    <b>Email:</b>paulo@email.com<br/><br/>
+                    <b>Idade:</b>22<br/><br/>
+                    <button type="button">
+                        <FiEdit size='25' color='#17202a'></FiEdit>
+                    </button>
 
-                        <button type="button"> 
-                            <FiUserX size='25' color='#17202a'></FiUserX>
-                        </button>
-                    </li>
-              </ul>
+                    <button type="button"> 
+                        <FiUserX size='25' color='#17202a'></FiUserX>
+                    </button>
+                </li>
+            </ul>
+            <br/>
             <ul>
-                 <li key='{aluno.id}'>
-                  <b>Nome:</b><br/><br/>
-                  <b>Email:</b><br/><br/>
-                  <b>Idade:</b><br/><br/>
+                <li key='{aluno.id}'>
+                <b>Nome:</b><br/><br/>
+                <b>Email:</b><br/><br/>
+                <b>Idade:</b><br/><br/>
 
-                 <button type="button">
+                <button type="button"> 
                     <FiEdit size='25' color='#17202a'></FiEdit>
-                 </button>
+                </button>
 
-                 <button type="button"> 
+                <button type="button"> 
                     <FiUserX size='25' color='#17202a'></FiUserX>
                 </button>
                </li>
